@@ -20,10 +20,7 @@ int slarge(int arr[], int n){
 }
 
 int main(){
-int arr[] = {15, 3, 9, 1, 20, 7, 20, 11};
-int n = 8;
-// Expected output: 15
-
-
+    int arr[] = {15, 3, 9, 1, 20, 7, 20, 11};
+    int n = 8;
     cout<<slarge(arr, n)<<endl;
 }
