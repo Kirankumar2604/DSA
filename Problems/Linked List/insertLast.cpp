@@ -37,13 +37,21 @@ void print(Node* temp){
     cout<<endl;
 }
 Node* insertValue(Node* head, int value){
-    return new Node(value, head);
+    if(head == NULL){
+        return new Node(value);
+    }
+    Node* temp = head;
+    while(temp->next != NULL){
+        temp = temp->next;
+    }
+    temp->next = new Node(value);
+    return head;
 }
 int main() {
     // Create an array
     vector<int> arr = {12, 5, 8, 7};
     int el = 20;
     Node* head = ConvertArrtoLL(arr);
-    print(new Node(el, head));
+    print(insertValue(head,el));
     return 0;
 }
