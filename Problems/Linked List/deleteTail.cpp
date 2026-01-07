@@ -30,11 +30,14 @@ Node* ConvertArrtoLL(vector<int> &arr){
     return head;
 }
 
-Node* deleteHead(Node* head){
-    if(head == NULL) return head;
-    Node* initalHead = head;
-    head = head->next;
-    free(initalHead);
+Node* deleteTail(Node* head){
+    if(head == NULL || head->next == NULL) return NULL;
+    Node* temp = head;
+    while(temp->next->next != NULL){
+        temp = temp->next;
+    }
+    free(temp->next);
+    temp->next = nullptr;
     return head;
 }
 void print(Node* temp){
@@ -49,8 +52,7 @@ int main() {
     vector<int> arr = {12, 5, 8, 7};
 
     Node* head = ConvertArrtoLL(arr);
-    Node* newHead = deleteHead(head);
-    Node* temp = newHead;
-    print(temp);
+    Node* deleteHead = deleteTail(head);
+    print(deleteHead);
     return 0;
 }
