@@ -30,9 +30,9 @@ Node* ConvertArrtoLL(vector<int> &arr){
     return head;
 }
 
-Node* deleteK(Node* head, int k){
+Node* deleteEL(Node* head, int el){
     if(head == NULL) return head;
-    if(k == 1){
+    if(head->data == el){
         Node* temp = head;
         head = head->next;
         free(temp);
@@ -43,7 +43,7 @@ Node* deleteK(Node* head, int k){
     Node* prev = NULL;
     while(temp != NULL){
         count++;
-        if(count == k){
+        if(temp->data == el){
             prev->next = prev->next->next;
             free(temp);
             break;
@@ -61,12 +61,19 @@ void print(Node* temp){
     }
     cout<<endl;
 }
+Node* insertValue(Node* head, int value){
+    Node* temp = head;
+    Node* newNode = new Node(value);
+    newNode->next = temp;
+    return newNode;
+}
 int main() {
     // Create an array
     vector<int> arr = {12, 5, 8, 7};
-    int k = 4;
+    int el = 15;
     Node* head = ConvertArrtoLL(arr);
-    Node* deletek = deleteK(head,k);
+    // Node* deletek = deleteEL(head,el);
+    Node* deletek = insertValue(head,el);
     print(deletek);
     return 0;
 }
