@@ -39,7 +39,7 @@ void print(Node* head){
     }
     cout<<endl;
 }
-Node* deleteKnode(Node* head,int k){
+Node* deleteKele(Node* head,int k){
     if(head == NULL || head->next == NULL) return NULL;
     if(k == 1){
         Node* temp = head;
@@ -75,7 +75,7 @@ int main(){
     vector<int> arr = {12, 5, 8, 7};
     int k = 2;
     Node* head = ConvertArrtoDLL(arr);
-    print(deleteKnode(head,k));
+    print(deleteKele(head,k));
     cout<<endl;
     return 0;
 }
